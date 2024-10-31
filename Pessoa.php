@@ -1,16 +1,18 @@
 <?php
 
 namespace PHP\Modelo;
+require_once("Endereco.php");
+use PHP\Modelo\Endereco;      
 
 
 class Pessoa{
     protected String $nome;
     protected int $credencial;
-    protected int $salario;
+    protected float $salario;
     protected string $telefone;
-    protected String $endereco;
+    protected Endereco $endereco;
 
-    public function __construct(string $nome, int $credencial, int $salario, string $telefone, String $endereco){
+    public function __construct(string $nome, int $credencial, float $salario, string $telefone, Endereco $endereco){
 
         $this->nome = $nome;
         $this->credencial = $credencial;
@@ -24,7 +26,7 @@ class Pessoa{
         return $this->nome;
     }
 
-    public function __set(String $nome, String $novoNome){
+    public function __set(String $nomeVariavel, String $novoNome){
 
         $this->nome = $novoNome;
     }
@@ -34,7 +36,7 @@ class Pessoa{
                "<br>Credencial: ".$this->credencial.
                "<br>Salário: ".$this->salario.
                "<br>Telefone: ".$this->telefone.
-               "<br>Endereço: ".$this->endereco;
+               "<br>Endereço: ".$this->endereco->imprimir();
     }
 
 

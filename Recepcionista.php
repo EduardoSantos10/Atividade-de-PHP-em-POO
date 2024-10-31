@@ -7,12 +7,11 @@
     use PHP\Modelo\Pessoa;
 
     class Recepcionista extends Pessoa {
-        protected string $cargo; // declaro o que não vem da classe pai
+         // declaro o que não vem da classe pai
         protected float $salario;
 
-        public function __construct(string $cpf, string $nome, string $telefone, string $cargo, float $salario, Endereco $endereco){
-            parent::__construct($cpf, $nome, $telefone, $endereco);
-            $this->cargo = $cargo;
+        public function __construct(string $credencial, string $nome, string $telefone, float $salario, Endereco $endereco){
+            parent::__construct($nome, $credencial, $salario, $telefone, $endereco);
             $this->salario = $salario;
         }
 
@@ -26,7 +25,7 @@
         }
         public function imprimir(): string{
             return parent::imprimir().
-            "<br>Cargo: ".$this->cargo.
+            
             "<br>Salario: ".$this->salario;
         }
 

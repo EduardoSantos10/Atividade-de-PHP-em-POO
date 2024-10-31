@@ -8,14 +8,14 @@ namespace PHP\Modelo; // define o local do projeto
 
     // Classe
     class Paciente extends Pessoa {
-        protected float $precoTotal;
+        protected float $salario;
 
         //Construtor
-        public function __construct(string $cpf, string $nome, string $telefone, Endereco $endereco, float $precoTotal){
+        public function __construct(string $credencial, string $nome, string $telefone, float $salario, Endereco $endereco){
             
             // "THIS" diferenciar var de parametro
-            parent::__construct($cpf, $nome, $telefone, $endereco); // ::parent -> sempre chama o metodo da classe pai
-            $this->precoTotal = $precoTotal;
+            parent::__construct($nome, $credencial, $salario, $telefone, $endereco); // ::parent -> sempre chama o metodo da classe pai
+            $this->salario = $salario;
         }
 
         // metodo gets e sets
@@ -29,7 +29,7 @@ namespace PHP\Modelo; // define o local do projeto
 
         public function imprimir():string{ // criei o metodo imprimir
             return parent::imprimir().
-            "<br>Preço Total: ".$this->precoTotal;
+            "<br>Salario: ".$this->salario;
         }
 
 
